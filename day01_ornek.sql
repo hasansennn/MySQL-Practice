@@ -1,0 +1,1 @@
+-- File kayit ornegi
