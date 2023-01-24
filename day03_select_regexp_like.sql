@@ -9,6 +9,9 @@
  WHERE REGEXP_LIKE(sutun_adi, 'pattern[]','c'[])
 %
 =========================================================================================*/
+use sys;
+
+
 CREATE TABLE kelimeler
     (
         id int UNIQUE,
@@ -36,28 +39,40 @@ CREATE TABLE kelimeler
     (1017, 'h?t', 3),
     (1018, 'hOOOt', 5),
     (1019, 'O', 1);
+    
 SELECT * FROM kelimeler;
+
 DROP TABLE kelimeler;
+
 -- Q1 : Icerisinde 'ot' veya 'at' bulunan kelimeleri case-sensitive'e dikkat ederek listele
     -- NOT: VEYA islemi icin | karakteri kullanilir.
+    
 SELECT kelime
 FROM kelimeler
 WHERE REGEXP_LIKE (kelime, 'ot|at','c');
+
+
 -- Q2 : Icerisinde 'ot' veya 'at' bulunan kelimeleri case-sensitive'e dikkat etmeksizin listele
+
 SELECT kelime
 FROM kelimeler
 WHERE REGEXP_LIKE (kelime, 'ot|at','i');
+
+
 -- Q3 : 'ho' veya 'hi' ile baslayan kelimeleri case-sensitive'e dikkat etmeksizin listele
     -- NOT: Baslangici gostermek icin ^ karakteri kullanilir.
     
 SELECT kelime
 FROM kelimeler
 WHERE REGEXP_LIKE(kelime, '^ho|^hi');
+
+
 -- Q4 : Sonu 't' veya 'm' ile bitenleri case-sensitive'e dikkat etmeksizin listele
     -- NOT: Bitisi gostermek icin $ karakteri kullanilir.
 SELECT kelime 
 FROM kelimeler 
 WHERE REGEXP_LIKE(kelime, 't$|m$');
+
 -- Q5 : h ile baslayip t ile biten 3 harfli kelimeleri (h ile t kucuk harfli olanlari) listeleyiniz
     -- NOT : [!-~] = Butun karakterleri ifade eder.
     --       [a-zA-Z0-9] = Harf ve rakamlari temsil eder.

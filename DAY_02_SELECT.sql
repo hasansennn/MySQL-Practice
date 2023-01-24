@@ -308,7 +308,37 @@ from personel1
 where id=10002;
 
 
+-- ************************ Personel Tablosundan *******************************
+/*-------------------------------------------------------------------------
+Q1: Isminin 2. harfi e olup diger harflerinde y olan personeli listeleyiniz
+---------------------------------------------------------------------------*/
+select *
+from personel1
+where isim LIKE '_e%' and isim LIKE '%y%';
+
+SELECT * FROM personel1;
+
+/*-------------------------------------------------------------------------
+Q2: Isminde a harfi olmayan personeli listeleyiniz
+---------------------------------------------------------------------------*/
+select *
+from personel1
+where isim not LIKE '%a%';
 
 
+/*-------------------------------------------------------------------------
+Q3: Maasi 5 haneli olan personeli listeleyiniz
+---------------------------------------------------------------------------*/
+select *
+from personel1
+where maas like  '_____';
 
+
+/*-------------------------------------------------------------------------
+Q4: 1. harfi a ve 7. harfi a olan personeli listeleyiniz
+---------------------------------------------------------------------------*/
+
+select *
+from personel1
+WHERE isim LIKE 'a_____a%';
 
