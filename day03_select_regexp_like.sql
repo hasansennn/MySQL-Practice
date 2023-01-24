@@ -56,7 +56,7 @@ WHERE REGEXP_LIKE (kelime, 'ot|at','c');
 
 SELECT kelime
 FROM kelimeler
-WHERE REGEXP_LIKE (kelime, 'ot|at','i');
+WHERE REGEXP_LIKE (kelime, 'ot|at','i'); -- 'i'karakterinin koymasakta olur(WHERE REGEXP_LIKE (kelime, 'ot|at')
 
 
 -- Q3 : 'ho' veya 'hi' ile baslayan kelimeleri case-sensitive'e dikkat etmeksizin listele
