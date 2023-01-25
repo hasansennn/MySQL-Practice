@@ -55,13 +55,17 @@ where isim like 'a_____a%';
 
 -- ************************ Fen Lisesi Tablosundan *****************************
 
-CREATE TABLE lise1 (
-okul_no CHAR(4) UNIQUE,
-isim VARCHAR(50) NOT NULL,
-derece DOUBLE,
-adres VARCHAR(100),
-son_degisiklik_tarihi DATE
+create table lise1 (
+okul_no char(4) UNIQUE,
+isim varchar(50) not null,
+derece double,
+adres varchar(100),
+son_degisiklik_tarihi date
 );
+
+select*from lise1;
+
+drop table lise1;
 INSERT INTO lise1 VALUES ('1001','Fatih Polat',89,'Ankara','2022-12-05');
 INSERT INTO lise1 VALUES ('1002','Efe Torun',85,'Istanbul','2022-12-05');
 INSERT INTO lise1 VALUES ('1003','Esra Turker',95,'Izmir','2022-12-05');
@@ -74,7 +78,7 @@ INSERT INTO lise1 (okul_no,isim,derece,son_degisiklik_tarihi) VALUES ('1009','Me
 INSERT INTO lise1 (isim,derece,son_degisiklik_tarihi) VALUES ('Salim Oz',89,'2022-12-05');
 INSERT INTO lise1 (isim,derece,son_degisiklik_tarihi) VALUES ('Suleyman Karaca',45,'2022-12-05');
 INSERT INTO lise1 VALUES ('','Ozgur Ali',90,'Istanbul','2022-12-05');
-INSERT INTO lise1 VALUES ('','Yusuf Enes',92,'Berlin','2022-12-05');
+INSERT INTO lise1 VALUES ('1019','Yusuf Enes',92,'Berlin','2022-12-05');
  
  select*from lise1;
  

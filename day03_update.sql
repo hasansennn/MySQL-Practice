@@ -76,3 +76,7 @@ UPDATE firmalar
 SET iletisim_isim = 'Ayse Can'
 WHERE iletisim_isim='Osman Can';
 
+-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-- id, isim ve irtibat fieldlarinin oldugu bir tedarik tablosu olusturun.
+-- id field'ini Primary Key yapin.
+
