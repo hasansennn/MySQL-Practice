@@ -3,27 +3,34 @@ use sys;
 -- id, isim ve irtibat fieldlarinin oldugu bir toptanci tablosu olusturun.
 -- id field'ini Primary Key yapin.
 
-create table tedarikci5
-(
-id char(4) primary key,
-isim varchar(20),
-irtibat varchar(25)
+create table tedarikci5(
+id char(5) primary key,
+isim varchar(25),
+irtibat varchar(35)
 );
-
-
--- tedarikci_id , urun_id , urun_isim , musteri_isim  fieldlari olan urun
--- tablosu olusturun. Bu tablodaki tedarikci_id fieldini tedarik tablosunun
+-- tedarikci_id , urun_id , urun_isim , musteri_isim  fieldlari olan urun5
+-- tablosu olusturun. Bu tablodaki tedarikci_id fieldini tedarik5 tablosunun
 -- PK 'si ile Foreign Key yapin.
 
-create table urun5
+create table  urun5
 (
-tedarikci_id char(4),
+tedarikci_id char(5),
 urun_id char(5),
-urun_isim varchar(30),
-musteri_isim varchar(30),
-constraint  urun5_fk foreign key(tedarikci_id)
+urun_isim varchar(25),
+musteri_isim varchar(25),
+constraint urun5_fk
+foreign key (tedarikci_id)
 references tedarikci5(id)
+
+
 );
+
+/*
+constraint urun5_fk
+foreign key (tedarikci_id)
+references tedarikci5(id)
+*/
+
 
 INSERT INTO tedarikci5 VALUES(100, 'IBM', 'Ali Can');
 INSERT INTO tedarikci5 VALUES(101, 'APPLE', 'Merve Temiz');
@@ -43,7 +50,7 @@ drop table urun5;
 
 update urun5
 set urun_isim ='Apple'
-where musteri_isim='Ali Kan';
+where musteri_isim='Phone';
 
 -- Irtibat'i Merve Temiz olan kaydin sirket ismini getirin
 select isim
@@ -52,19 +59,16 @@ where irtibat='Merve Temiz';
 
 
 /*
-a) Urun tablosundan Ali Kan'in aldigi urunun ismini, 
-tedarik tablosunda irtibat Merve Temiz olan 
+a) Urun5 tablosundan Ali Kan'in aldigi urunun ismini, 
+tedarik5 tablosunda irtibat Merve Temiz olan 
 sirketin ismi ile degistirin. */
 
-
 update urun5
-set urun_isim=(select isim from tedarik where irtibat='Merve Temiz')
+set urun_isim=(select isim from tedarikci5 where irtibat='Merve Temiz')
 where musteri_isim='Ali Kan';
 
 select*from tedarikci5;
 select*from urun5;
-
-
 
 
 update urun5
@@ -74,13 +78,16 @@ where irtibat='Merve Temiz')
 where musteri_isim='Ali Kan';
 
 /*a) tedarikci5 tablosundan Ali Can'in şirket ismini , 
-urunler5 tablosunda musteri_isimi Suleyman'in 
+urun5 tablosunda musteri_isimi Suleyman'in 
 urun ismi ile degistirin. */
 
 update tedarikci5
-set isim=
-(select urun_isim from urun5 where musteri_isim= 'Suleyman')
-where irtibat= 'Ali Can';
+set isim=(select urun_isim from urun5 where musteri_isim='Suleyman')
+where musteri_isim='Ali KAN';
+
+
+
+
 
 update urun5
 set urun_isim=(select isim from tedarikci5 where  irtibat='Kemal CAN')
@@ -102,8 +109,9 @@ b) TV satin alan musterinin ismini,
 IBM'in irtibat'i ile degistirin.
 -------------------------------------------------------------------------*/
 update urun5
-set musteri_isim=(select irtibat from tedarikci5 where irtibat='Merve Temiz')
-where musteri_isim ='Ramazan';
+set musteri_isim=(select irtibat from tedarikci5 where isim='IBM')
+where urun_isim='TV';
+
 
 update urun5
 set musteri_isim=(select irtibat from tedarikci5 where isim='IBM')
@@ -111,14 +119,10 @@ where urun_isim='TV';
 
 
 /*-------------------------------------------------------------------------
-1) Cocuklar10 tablosu olusturun.
+1) cocuklar10 tablosu olusturun.
  Icinde id,isim,veli_isim ve grade field'lari olsun. 
  Id field'i Primary Key olsun.
  --------------------------------------------------------------------------*/
- 
- 
- 
- 
  
  
 CREATE TABLE cocuklar10(

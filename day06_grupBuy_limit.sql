@@ -14,7 +14,7 @@ INSERT INTO employees VALUES(345678901, 'Mine Bulut', 'Izmir');
 
 
 select*from employees;
-
+-- as ile sütun isimlerini değistirebiliriz
 select employee_id as id, employee_name as name , employee_birth_city as city
 from employees;
 

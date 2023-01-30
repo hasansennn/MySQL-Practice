@@ -41,7 +41,7 @@ select *
 from meslek_lisesi
 where derece>90;
 
-
+select*from meslek_lisesi;
 
 
 -- Q2 : Derecesi 80'den kucuk olan ogrencilerin isimlerini listeleyin.
@@ -200,7 +200,7 @@ WHERE isim
 BETWEEN 'Ahmet' AND 'Ayse Cano';
 
 -- Q10: Maasi 7000 ya da ismi Ayse olan personel id'lerini listeleyin
-
+use sys;
 SELECT id
 FROM personel1
 WHERE maas=700 or isim='Ayse';
@@ -208,7 +208,7 @@ WHERE maas=700 or isim='Ayse';
 /*-------------------------------------------------------------------------
 Q11: Id'si 10001, 10005 ya da 10008 olan personel isimlerini listeleyin
 ---------------------------------------------------------------------------*/
-SELECT isim
+SELECT isim,id
 FROM personel1
 WHERE id = '10001' OR id = '10005' OR id = '10008';
 

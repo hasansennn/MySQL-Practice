@@ -3,7 +3,7 @@ use sys;
 
 create table usak_jandarma(
 sira_no int unique,
-pbik int unique,
+pbik char(7) unique,
 rütbe varchar(20),
 isim varchar(20) not null,
 maas double
@@ -39,7 +39,7 @@ where maas>10000;
 
 -- Q3 : Rütbesi Sivil Memur olan personelin  isim ve maas bilgilerini listeleyin.
 
-select isim,maas
+select isim,maas,rütbe
 from usak_jandarma
 where rütbe='Sivil Memur';
 
