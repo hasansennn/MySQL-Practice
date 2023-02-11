@@ -18,7 +18,6 @@ INSERT INTO isciler VALUES(456715012, 'Veli Sahin', 'Ankara', 4500, 'Ford');
 INSERT INTO isciler VALUES(123456710, 'Hatice Sahin', 'Bursa', 4500, 'Honda');
 
 select*from isciler;
-
 -- 1) Isme gore toplam maaslari bulun
 
 select isim ,sum(maas)  toplam_maas
@@ -31,13 +30,25 @@ select sehir ,count(isim)  toplam_isci
 from isciler
 group by sehir;
 
+
+-- 2) Sehre gore toplam isci sayisini buyukten kucuge yazdiriniz
+
+select sehir ,count(isim)isci_sayisi
+from isciler
+group by sehir
+order by  isci_sayisi desc;
+
+
+
 -- 3) Sirketlere gore maasi 5000 liradan fazla olan isci sayisini bulun
 select sirket,maas,count(isim) isci_sayisi
 from isciler
 where maas>5000
 group by sirket,maas;
 
+
 -- 4) Her sirket icin Min ve Max maasi bulun
-select sirket,min(maas) min_maas,max(maas)max_maas
+
+select sirket,min(maas) ,max(maas)
 from isciler
 group by sirket;

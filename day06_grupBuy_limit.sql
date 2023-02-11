@@ -1,3 +1,6 @@
+
+use sys;
+
 /* ======================== ALIASES ===========================
    Aliases kodu ile tablo yazdirilirken, field isimleri sadece
    o cikti icin degistirilebilir.
